@@ -48,7 +48,8 @@ describe('<Product />', () => {
 
   describe('`name` prop', function () {
     it('should be required', function () {
-      shallow(<Product {...ALL_PROPS_VALID} name={undefined} />);
+      const props = Object.assign(ALL_PROPS_VALID, {name: undefined})
+      shallow(<Product {...props} />);
       expect(isRequiredPropTypeError(spy, 'name')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
     });
 
